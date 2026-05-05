@@ -1,0 +1,148 @@
+```html id="p6k9z1"
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>ProgramIndonesiaSehat</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #a8e6cf, #ffb6c1);
+    }
+
+    header {
+      text-align: center;
+      padding: 25px;
+      color: #2d3436;
+    }
+
+    nav {
+      text-align: center;
+      padding: 10px;
+      background: rgba(255,255,255,0.6);
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #2d3436;
+      cursor: pointer;
+    }
+
+    .container {
+      width: 80%;
+      margin: 20px auto;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #55efc4;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .hasil {
+      margin-top: 15px;
+      background: #f1f2f6;
+      padding: 10px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>ProgramIndonesiaSehat</h1>
+  <p>Mewujudkan masyarakat sehat dan aktif ??</p>
+</header>
+
+<nav>
+  <a onclick="showPage('home')">Home</a>
+  <a onclick="showPage('pencapaian')">Pencapaian</a>
+</nav>
+
+<div class="container">
+
+  <!-- HOME -->
+  <div id="home" class="card">
+    <h2>Program Sehat</h2>
+    <p>
+      ProgramIndonesiaSehat adalah inisiatif untuk mendorong masyarakat hidup lebih sehat
+      melalui pola makan yang baik, olahraga rutin, dan menjaga kesehatan mental.
+    </p>
+    <p>
+      Dengan program ini, diharapkan setiap individu dapat meningkatkan kualitas hidup,
+      menjadi lebih aktif, dan memiliki kebiasaan positif setiap hari.
+    </p>
+  </div>
+
+  <!-- PENCAPAIAN -->
+  <div id="pencapaian" class="card hidden">
+    <h2>Catat Pencapaian Kamu</h2>
+
+    <input type="text" id="nama" placeholder="Masukkan nama kamu">
+    <textarea id="isi" placeholder="Tulis pencapaian kamu..."></textarea>
+    <button onclick="tambah()">Simpan</button>
+
+    <div id="output"></div>
+  </div>
+
+</div>
+
+<script>
+  function showPage(page) {
+    document.getElementById('home').classList.add('hidden');
+    document.getElementById('pencapaian').classList.add('hidden');
+
+    document.getElementById(page).classList.remove('hidden');
+  }
+
+  function tambah() {
+    let nama = document.getElementById('nama').value;
+    let isi = document.getElementById('isi').value;
+
+    if(nama === "" || isi === "") {
+      alert("Isi dulu ya!");
+      return;
+    }
+
+    let hasil = document.createElement("div");
+    hasil.classList.add("hasil");
+    hasil.innerHTML = "<b>" + nama + "</b><br>" + isi;
+
+    document.getElementById('output').appendChild(hasil);
+
+    document.getElementById('nama').value = "";
+    document.getElementById('isi').value = "";
+  }
+</script>
+
+</body>
+</html>
+```
